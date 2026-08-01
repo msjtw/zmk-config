@@ -5,14 +5,8 @@
  */
 
 #include <dt-bindings/zmk/matrix_transform.h>
-#include <layouts/josefadamcik/sofle.dtsi>
 
 / {
-    chosen {
-        zephyr,display = &oled;
-        zmk,physical-layout = &physical_layout0;
-        zmk,kscan = &kscan0;
-    };
 
     default_transform: keymap_transform_0 {
         compatible = "zmk,matrix-transform";
@@ -30,33 +24,17 @@
 
     };
 
-    kscan0: kscan {
+    kscan0: kscan0 {
         compatible = "zmk,kscan-gpio-matrix";
+        diode-direction = "col2row";
         wakeup-source;
 
-        diode-direction = "col2row";
-        row-gpios
+        row-gpios =
             <&pro_micro 18 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
             <&pro_micro 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
             <&pro_micro 14 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
             <&pro_micro 16 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
             <&pro_micro 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
-    };
-
-    left_encoder: encoder_left {
-        compatible = "alps,ec11";
-        a-gpios = <&pro_micro 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        b-gpios = <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        steps = <80>;
-        status = "disabled";
-    };
-
-    right_encoder: encoder_right {
-        compatible = "alps,ec11";
-        a-gpios = <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        b-gpios = <&pro_micro 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        steps = <80>;
-        status = "disabled";
     };
 
     physical_layout0: physical_layout_0 {
@@ -66,10 +44,32 @@
         transform = <&default_transform>;
     };
 
-    sensors: sensors {
-        compatible = "zmk,keymap-sensors";
-        sensors = <&left_encoder &right_encoder>;
-        triggers-per-rotation = <20>;
+    // left_encoder: encoder_left {
+    //     compatible = "alps,ec11";
+    //     a-gpios = <&pro_micro 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+    //     b-gpios = <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+    //     steps = <80>;
+    //     status = "disabled";
+    // };
+    //
+    // right_encoder: encoder_right {
+    //     compatible = "alps,ec11";
+    //     a-gpios = <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+    //     b-gpios = <&pro_micro 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+    //     steps = <80>;
+    //     status = "disabled";
+    // };
+
+    // sensors: sensors {
+    //     compatible = "zmk,keymap-sensors";
+    //     sensors = <&left_encoder &right_encoder>;
+    //     triggers-per-rotation = <20>;
+    // };
+
+    chosen {
+        zephyr,display = &oled;
+        zmk,physical-layout = &physical_layout0;
+        zmk,kscan = &kscan0;
     };
 };
 
