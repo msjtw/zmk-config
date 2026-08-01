@@ -7,13 +7,10 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <layouts/josefadamcik/sofle.dtsi>
 
-&josefadamcik_sofle_layout {
-    transform = <&default_transform>;
-};
-
 / {
     chosen {
         zephyr,display = &oled;
+        zmk,physical-layout = &physical_layout0;
         zmk,kscan = &kscan0;
     };
 
@@ -60,6 +57,13 @@
         b-gpios = <&pro_micro 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         steps = <80>;
         status = "disabled";
+    };
+
+    physical_layout0: physical_layout_0 {
+        compatible = "zmk,physical-layout";
+        display-name = "Default Layout";
+        kscan = <&kscan0>;
+        transform = <&default_transform>;
     };
 
     sensors: sensors {
