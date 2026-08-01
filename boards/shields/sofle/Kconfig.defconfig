@@ -1,17 +1,14 @@
-# Copyright (c) 2020 Ryan Cross
-# SPDX-License-Identifier: MIT
-
-if SHIELD_SOFLE_LEFT
+if SHIELD_KBRD_LEFT
 
 config ZMK_KEYBOARD_NAME
-    default "Sofle"
+    default "lag-kbrd"
 
 config ZMK_SPLIT_ROLE_CENTRAL
     default y
 
 endif
 
-if SHIELD_SOFLE_LEFT || SHIELD_SOFLE_RIGHT
+if SHIELD_KBRD_LEFT || SHIELD_KBRD_RIGHT
 
 config ZMK_SPLIT
     default y

@@ -20,6 +20,6 @@
 ---
 include:
   - board: nice_nano_v2
-    shield: sofle_left
+    shield: lag-kbrd_left
   - board: nice_nano_v2
-    shield: sofle_right
+    shield: lag-kbrd_right

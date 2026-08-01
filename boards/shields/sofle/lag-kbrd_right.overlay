@@ -1,10 +1,4 @@
-/*
- * Copyright (c) 2020 Ryan Cross
- *
- * SPDX-License-Identifier: MIT
- */
-
-#include "sofle.dtsi"
+#include "lag-kbrd.dtsi"
 
 &default_transform {
     col-offset = <6>;
