@@ -20,6 +20,6 @@
 ---
 include:
   - board: nice_nano_v2
-    shield: lag-kbrd_left
+    shield: lag-kbrd_left nice_oled
   - board: nice_nano_v2
-    shield: lag-kbrd_right
+    shield: lag-kbrd_right nice_oled
